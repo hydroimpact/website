@@ -27,15 +27,22 @@
     <h2 id="build-title">{{ $p.build.heading }}</h2>
     <div class="prose"><p>{{ $p.build.intro }}</p></div>
   </div>
-  <ul class="axes">
+  <ol class="axes">
     {{- range $p.build.items }}
     <li>
       <h3>{{ .title }}</h3>
       <p>{{ .text }}</p>
     </li>
     {{- end }}
-  </ul>
+  </ol>
 </section>
+
+{{- with $p.science }}
+<section class="section wrap split" aria-labelledby="science-title">
+  <h2 id="science-title">{{ .heading }}</h2>
+  <div class="prose">{{ .text | $.RenderString (dict "display" "block") }}</div>
+</section>
+{{- end }}
 
 <section id="summary" class="section wrap split" aria-labelledby="summary-title">
   <h2 id="summary-title">Project summary</h2>

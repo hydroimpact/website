@@ -1,19 +1,19 @@
 ---
 title: HydroImpact
-description: HydroImpact is building a cloud-based platform that makes hydrological climate impact assessments accessible to water managers, engineers and planners.
+description: HydroImpact makes robust hydrological climate impact assessments accessible to those who need them, with an application-driven climate impact platform for rivers across Europe.
 
 hero:
   heading: Robust climate impact assessments for rivers across Europe
   lede: >-
-    Climate change is reshaping how much water mountain rivers carry, and when.
-    HydroImpact is building a cloud-based platform that lets water managers,
-    engineers and planners assess how rivers in their own catchments may change,
-    together with the full range of uncertainty.
+    Climate change is reshaping our rivers: longer droughts, more intense floods.
+    HydroImpact will quantify these changes, river by river, with a platform that
+    makes robust hydrological climate impact assessments accessible to those who
+    need them.
   status: The project starts in May 2027, funded by BRIDGE.
 
 # Modelling chain figure below the introduction (layouts/_partials/chain.html).
 chain:
-  title: How a hydrological climate impact assessment is built
+  title: 
   stages:
     - name: Emission scenarios
       text: Possible pathways of future greenhouse gas emissions
@@ -22,32 +22,31 @@ chain:
     - name: Regional climate
       text: Simulated over Europe on a finer grid
     - name: Local climate
-      text: Adjusted to the catchment using observations
+      text: Brought down to the catchment scale
     - name: River impacts
-      text: Changes in flow, floods, droughts and seasonality
-  # role: "assess" (dashed blue) or "run" (solid blue) marks where HydroImpact comes in.
+      text: Changes in streamflow, floods, low flows and seasonality
+  # role: "assess" (dashed) or "run" (solid) marks where HydroImpact comes in.
   steps:
     - name: Global climate models
     - name: Regional climate models
       role: assess
-      note: Suitability of outputs assessed
-    - name: Downscaling and bias adjustment
+      note: 
+    - name: Bias adjustment and downscaling
       role: run
-      note: Evaluated and run
+      note: 
     - name: Hydrological models
       role: run
-      note: Evaluated and run
+      note: 
   ours: >-
-    HydroImpact does not run climate models. It assesses which regional climate
-    simulations suit a given application, then evaluates combinations of
-    downscaling, bias adjustment and hydrological models and runs them for your
-    catchment.
+    HydroImpact tests which chains suit each application and region, from the
+    regional climate simulations onwards, and turns them into automated
+    workflows.
   caption: >-
-    Each step involves a choice between models and methods, and every combination
-    gives a somewhat different answer.
+    The possible answers multiply at every step. Unsuited methods and ignored
+    uncertainty lead to costly wrong decisions.
 
 why:
-  heading: Why it matters
+  heading: Why it is needed
   text: |-
     Climate change is altering streamflow in mountain regions and in the lowlands that depend on them. Summer water availability is decreasing, while floods and droughts are intensifying, driven by changes in snow accumulation and melt, evapotranspiration, and the amount and intensity of precipitation.
 

@@ -5,7 +5,7 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term"]
 
 [params]
-  description = "HydroImpact is building a cloud-based platform that makes hydrological climate impact assessments accessible to water managers, engineers and planners."
+  description = "HydroImpact makes robust hydrological climate impact assessments accessible to those who need them, with an application-driven climate impact platform for rivers across Europe."
   repo = "https://github.com/hydroimpact/website"
   grant = "40B2-0_243611"
 
