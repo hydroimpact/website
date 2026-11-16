@@ -3,7 +3,7 @@ title: HydroImpact
 description: HydroImpact is building a cloud-based platform that makes hydrological climate impact assessments accessible to water managers, engineers and planners.
 
 hero:
-  heading: Climate impact assessments for rivers, within reach of the people who manage them
+  heading: Robust climate impact assessments for rivers across Europe
   lede: >-
     Climate change is reshaping how much water mountain rivers carry, and when.
     HydroImpact is building a cloud-based platform that lets water managers,
