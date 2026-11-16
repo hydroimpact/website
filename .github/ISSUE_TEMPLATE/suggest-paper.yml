@@ -1,0 +1,35 @@
+name: Suggest a paper
+description: Propose a publication for the papers list on hydroimpact.org.
+title: "Paper: "
+labels: ["paper"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a paper. We list project publications and studies on climate impact modelling in hydrology that are useful to practitioners and researchers.
+  - type: input
+    id: link
+    attributes:
+      label: DOI or link
+      placeholder: "10.5194/hess-..."
+    validations:
+      required: true
+  - type: input
+    id: title
+    attributes:
+      label: Title
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it relevant?
+      description: One or two sentences. We may use them as the note shown under the paper.
+    validations:
+      required: true
+  - type: checkboxes
+    id: own
+    attributes:
+      label: Authorship
+      options:
+        - label: I am an author of this paper.

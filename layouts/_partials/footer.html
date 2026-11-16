@@ -1,0 +1,30 @@
+{{- /* Funder logos from data/funders.yaml. If a listed file is missing,
+       fall back to the first logo (BRIDGE) alone, as the BRIDGE rules allow. */ -}}
+{{- $funders := hugo.Data.funders }}
+{{- $present := slice }}
+{{- range $funders }}
+  {{- if os.FileExists (printf "static/%s" .file) }}{{ $present = $present | append . }}{{ end }}
+{{- end }}
+{{- if lt (len $present) (len $funders) }}
+  {{- warnf "Funder logos: a file listed in data/funders.yaml is missing; showing the first logo alone." }}
+  {{- $present = first 1 $funders }}
+{{- end }}
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="funders">
+      <p class="funders__label">Funded by</p>
+      {{- partial "logos.html" $present }}
+    </div>
+    <p class="funding">
+      HydroImpact is funded by <a href="https://www.bridge.ch/">BRIDGE</a>, a joint programme of the Swiss National Science Foundation and Innosuisse, through BRIDGE Discovery grant {{ site.Params.grant }}.
+    </p>
+    <ul class="site-footer__links">
+      <li><a href="{{ "privacy/" | relURL }}">Privacy</a></li>
+      {{- with site.Params.contact_email }}
+      <li><a href="mailto:{{ . }}">Contact</a></li>
+      {{- end }}
+      <li><a href="{{ "news/index.xml" | relURL }}">News feed (RSS)</a></li>
+      <li><a href="{{ site.Params.repo }}">Website source on GitHub</a></li>
+    </ul>
+  </div>
+</footer>

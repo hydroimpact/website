@@ -1,0 +1,8 @@
+# Funder logos in the footer, shown left to right. Files live in static/logos/.
+# BRIDGE rules: show either the BRIDGE logo alone or BRIDGE, SNSF and Innosuisse
+# together, unmodified. height: display height in pixels.
+
+- name: BRIDGE
+  file: logos/bridge.png
+  url: https://www.bridge.ch/
+  height: 24

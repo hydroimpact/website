@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="wrap page">
+  <header class="page__head">
+    <h1>{{ .Title }}</h1>
+    {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
+  </header>
+  {{- with .Pages }}
+  <ol class="posts">
+    {{- range . }}
+    <li>
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{- with .Description }}<p>{{ . }}</p>{{ else }}<p>{{ .Summary | plainify | truncate 220 }}</p>{{ end }}
+    </li>
+    {{- end }}
+  </ol>
+  {{- else }}
+  <p class="empty">No news yet. <a href="{{ relURL "" }}#updates">Subscribe to updates</a> to get the first one by email.</p>
+  {{- end }}
+</div>
+{{ end }}

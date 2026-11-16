@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{- $p := .Params }}
+<section class="hero">
+  <div class="wrap">
+    <h1 class="hero__title">{{ $p.hero.heading }}</h1>
+    <div class="hero__row">
+      <p class="hero__lede">{{ $p.hero.lede }}</p>
+      <div class="hero__next">
+        <p class="hero__actions">
+          <a class="button" href="#updates">Get project updates</a>
+          <a class="button button--quiet" href="#summary">Read the project summary</a>
+        </p>
+        <p class="hero__status">{{ $p.hero.status }}</p>
+      </div>
+    </div>
+  </div>
+  {{- partial "chain.html" . }}
+</section>
+
+<section id="about" class="section wrap split" aria-labelledby="why-title">
+  <h2 id="why-title">{{ $p.why.heading }}</h2>
+  <div class="prose">{{ $p.why.text | $.RenderString (dict "display" "block") }}</div>
+</section>
+
+<section class="section wrap" aria-labelledby="build-title">
+  <div class="split">
+    <h2 id="build-title">{{ $p.build.heading }}</h2>
+    <div class="prose"><p>{{ $p.build.intro }}</p></div>
+  </div>
+  <ul class="axes">
+    {{- range $p.build.items }}
+    <li>
+      <h3>{{ .title }}</h3>
+      <p>{{ .text }}</p>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+
+<section id="summary" class="section wrap split" aria-labelledby="summary-title">
+  <h2 id="summary-title">Project summary</h2>
+  <div>
+    <details class="summary">
+      <summary>Read the full summary from the funding proposal</summary>
+      <div class="prose">{{ .Content }}</div>
+    </details>
+  </div>
+</section>
+
+<section class="section wrap split" aria-labelledby="team-title">
+  <h2 id="team-title">Who is behind it</h2>
+  <div>
+    <ul class="team">
+      {{- range hugo.Data.team }}
+      <li>
+        <p class="team__name">{{ with .url }}<a href="{{ . }}">{{ end }}{{ .name }}{{ with .url }}</a>{{ end }}</p>
+        <p class="team__org">{{ .affiliation }}</p>
+      </li>
+      {{- end }}
+    </ul>
+    <div class="institutions">
+      {{- partial "logos.html" hugo.Data.institutions }}
+    </div>
+  </div>
+</section>
+
+{{ partial "signup.html" . }}
+{{ end }}

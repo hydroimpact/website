@@ -1,0 +1,6 @@
+{{- with site.Params.contact_email -}}
+<a href="mailto:{{ . }}">{{ . }}</a>
+{{- else -}}
+{{- warnf "params.contact_email is empty; the privacy page shows a placeholder." -}}
+[contact email to be added]
+{{- end -}}

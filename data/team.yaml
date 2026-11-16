@@ -1,0 +1,12 @@
+# People shown under "Who is behind it" on the home page.
+# Check names and affiliations with each person before publishing.
+# Optional field: url (personal or institutional page).
+
+- name: Pascal Horton
+  affiliation: Hydrology group, Institute of Geography and Oeschger Centre for Climate Change Research, University of Bern
+
+- name: Manuela Brunner
+  affiliation: WSL Institute for Snow and Avalanche Research SLF, Davos, and ETH Zurich
+
+- name: Mathieu Salzmann
+  affiliation: Swiss Data Science Center and EPFL

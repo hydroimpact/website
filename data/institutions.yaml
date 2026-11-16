@@ -1,0 +1,27 @@
+# Institution logos under "Who is behind it", shown left to right.
+# Files live in static/logos/. height: display height in pixels.
+
+- name: University of Bern
+  file: logos/unibe.svg
+  url: https://www.unibe.ch/
+  height: 66
+
+- name: WSL Swiss Federal Institute for Forest, Snow and Landscape Research
+  file: logos/wsl.svg
+  url: https://www.wsl.ch/
+  height: 52
+
+- name: ETH Zurich
+  file: logos/ethz.svg
+  url: https://ethz.ch/
+  height: 22
+
+- name: EPFL
+  file: logos/epfl.svg
+  url: https://www.epfl.ch/
+  height: 26
+
+- name: Swiss Data Science Center
+  file: logos/sdsc.svg
+  url: https://www.datascience.ch/
+  height: 30

@@ -1,0 +1,726 @@
+/* HydroImpact website styles.
+   Palette: cool map paper, deep slate ink, lake blue for today's river,
+   ochre for the drier futures. Type: Instrument Sans (headings, interface)
+   and Source Serif 4 (reading text), both served from /fonts. */
+
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/instrument-sans-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/instrument-sans-latin-ext-wght-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/source-serif-4-latin-wght-normal.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/source-serif-4-latin-ext-wght-normal.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/source-serif-4-latin-wght-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Source Serif 4";
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url("../fonts/source-serif-4-latin-ext-wght-italic.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* ---------- Tokens ---------- */
+
+:root {
+  --paper: #f5f7f6;
+  --band: #e6eef0;
+  --ink: #14262f;
+  --muted: #4f6169;
+  --rule: #cfd9dc;
+  --line: #b3c2c7;
+  --sea: #e1e8ea;
+  --water: #1d5f8a;
+  --water-ink: #174c6f;
+  --dry: #a86f12;
+  --on-water: #ffffff;
+
+  --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --step--1: 0.875rem;
+  --step-0: 1.125rem;
+  --step-1: 1.3125rem;
+  --step-2: 1.75rem;
+  --step-3: clamp(2.125rem, 1.4rem + 3.2vw, 3.5rem);
+
+  --gutter: 1rem;
+  --measure: 38rem;
+  --section-space: clamp(3.5rem, 2rem + 6vw, 6.5rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0f1d24;
+    --band: #142a33;
+    --ink: #e4ecee;
+    --muted: #9fb2b9;
+    --rule: #28434d;
+    --line: #4a6873;
+    --sea: #1a3039;
+    --water: #72b4df;
+    --water-ink: #9ccbea;
+    --dry: #e0a84a;
+    --on-water: #0b1a21;
+  }
+}
+
+@media (min-width: 48rem) {
+  :root { --gutter: 2rem; }
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 1.5rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--step-0);
+  line-height: 1.6;
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  margin: 0;
+  text-wrap: balance;
+}
+h1 { font-size: var(--step-3); letter-spacing: -0.022em; }
+h2 { font-size: var(--step-2); }
+h3 { font-size: var(--step-1); line-height: 1.25; }
+
+p { margin: 0; }
+
+a {
+  color: var(--water-ink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 2px solid var(--water);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  z-index: 10;
+  padding: 0.5rem 0.75rem;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+}
+.skip:focus { top: 0.75rem; }
+
+/* ---------- Header ---------- */
+
+.site-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding-block: 1.25rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 650;
+  font-size: 1.25rem;
+  letter-spacing: -0.015em;
+  text-decoration: none;
+}
+.brand .mark { width: 1.75rem; height: 1.75rem; color: var(--water); }
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--sans);
+  font-size: 1rem;
+}
+.nav a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav a:hover,
+.nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35em;
+}
+.nav .nav__cta {
+  color: var(--water-ink);
+  font-weight: 600;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.15rem;
+  border: 2px solid var(--water);
+  border-radius: 0.3rem;
+  background: var(--water);
+  color: var(--on-water);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.button:hover { background: var(--water-ink); border-color: var(--water-ink); }
+.button--quiet {
+  background: transparent;
+  color: var(--water-ink);
+}
+.button--quiet:hover { background: transparent; color: var(--ink); border-color: var(--ink); }
+
+/* ---------- Hero ---------- */
+
+.hero { padding-top: clamp(2rem, 1rem + 4vw, 4rem); }
+
+.hero__title { max-width: 19ch; }
+
+.hero__lede {
+  max-width: var(--measure);
+  margin-top: 1.5rem;
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+/* On wide screens the headline runs wider and the buttons sit beside the
+   lede, so the figure starts within the first screen. */
+@media (min-width: 64rem) {
+  .hero__title { max-width: 26ch; }
+  .hero__row {
+    display: grid;
+    grid-template-columns: minmax(0, 40rem) auto;
+    justify-content: space-between;
+    align-items: end;
+    gap: 3rem;
+    margin-top: 1.75rem;
+  }
+  .hero__lede { margin-top: 0; }
+  .hero__actions { margin-top: 0; }
+  .chain { margin-top: 3.5rem; }
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero__status {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: var(--step--1);
+}
+
+/* ---------- Modelling chain figure ---------- */
+
+.chain {
+  margin: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) auto 0;
+}
+
+.chain__title {
+  margin-bottom: 1.5rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: var(--step--1);
+}
+
+/* Phones: one column, stages with the step between them. */
+.chain__grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chain__stage {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  column-gap: 1rem;
+  align-items: center;
+}
+.chain__stage svg {
+  grid-row: 1 / 3;
+  width: 100%;
+  height: auto;
+}
+.chain__name {
+  align-self: end;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+.chain__text {
+  align-self: start;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.chain__step {
+  margin-left: 2.75rem;
+  padding: 0.35rem 0 0.35rem 1.25rem;
+  border-left: 2px solid var(--line);
+  font-family: var(--sans);
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+/* Steps HydroImpact takes part in: dashed where it assesses existing
+   outputs, solid where it also runs the step. */
+.chain__step--assess,
+.chain__step--run {
+  color: var(--water-ink);
+  font-weight: 600;
+}
+.chain__step--assess { border-left: 2px dashed var(--water); }
+.chain__step--run { border-left-color: var(--water); }
+.chain__note {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+}
+
+.chain__ours {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--water);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.45;
+  max-width: 34rem;
+}
+
+.chain figcaption {
+  margin-top: 1.5rem;
+  max-width: 44rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Icon drawing */
+.ci-ink { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+.ci-ink-fill { fill: var(--ink); }
+.ci-grid line { stroke: var(--rule); stroke-width: 1; }
+.ci-axis { stroke: var(--line); stroke-width: 1.5; }
+.ci-dry { fill: none; stroke: var(--dry); stroke-width: 2.8; stroke-linecap: round; }
+.ci-sea { fill: var(--sea); }
+.ci-land { fill: var(--water); }
+.ci-snow { fill: var(--paper); stroke: var(--ink); stroke-width: 1.4; stroke-linejoin: round; }
+.ci-station { fill: var(--paper); stroke: var(--ink); stroke-width: 2; }
+.ci-tree { fill: var(--ink); }
+.ci-river { fill: none; stroke: var(--water); stroke-width: 4.5; stroke-linecap: round; }
+
+/* Wide screens: stages in a row, steps as arrows underneath, offset
+   between the stages they connect (as in the project's figure). */
+@media (min-width: 60rem) {
+  .chain__grid {
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    column-gap: 1rem;
+    row-gap: 1.25rem;
+  }
+  .chain__stage {
+    grid-row: 1;
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .chain__stage svg { width: 100%; max-width: 9.5rem; margin-bottom: 0.75rem; }
+  .chain__name, .chain__text { align-self: center; }
+  .chain__text { max-width: 13rem; }
+
+  .chain__step {
+    grid-row: 2;
+    position: relative;
+    margin: 0;
+    padding: 0.7rem 0.5rem 0;
+    border-left: 0;
+    border-top: 2px solid var(--line);
+    text-align: center;
+  }
+  .chain__step::after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    right: -2px;
+    border: 6px solid transparent;
+    border-left: 9px solid var(--line);
+    border-right: 0;
+  }
+  .chain__step--assess { border-left: 0; border-top: 2px dashed var(--water); }
+  .chain__step--run { border-top-color: var(--water); }
+  .chain__step--assess::after,
+  .chain__step--run::after { border-left-color: var(--water); }
+  .p1 { grid-column: 2 / 4; }
+  .p2 { grid-column: 4 / 6; }
+  .p3 { grid-column: 6 / 8; }
+  .p4 { grid-column: 8 / 10; }
+
+  .chain__ours {
+    grid-row: 3;
+    grid-column: var(--from, 6) / var(--to, 10);
+    margin-top: 0;
+    padding-left: 0;
+    border-left: 0;
+    max-width: none;
+    text-align: center;
+  }
+  .chain__ours::before {
+    content: "";
+    display: block;
+    height: 0.6rem;
+    margin-bottom: 0.75rem;
+    border: 2px solid var(--water);
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+  }
+}
+
+/* ---------- Sections ---------- */
+
+.section { padding-top: var(--section-space); }
+
+.split {
+  display: grid;
+  gap: 1rem 2rem;
+}
+@media (min-width: 56rem) {
+  .split { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+  .split > h2 { padding-top: 0.15rem; }
+}
+
+.prose { max-width: var(--measure); }
+.prose > * + * { margin-top: 1em; }
+.prose h2 { margin-top: 2em; font-size: var(--step-1); }
+.prose ul, .prose ol { padding-left: 1.25em; }
+.prose li + li { margin-top: 0.6em; }
+.prose strong { font-weight: 650; }
+
+.split .prose:first-child,
+.split > .prose { margin-top: 0; }
+
+.axes {
+  display: grid;
+  gap: 2rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 56rem) {
+  .axes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+}
+.axes li {
+  padding-top: 1rem;
+  border-top: 3px solid var(--water);
+}
+.axes h3 { font-size: 1.2rem; }
+.axes p { margin-top: 0.6rem; }
+
+/* Full summary */
+
+.summary summary {
+  cursor: pointer;
+  color: var(--water-ink);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  width: fit-content;
+}
+.summary summary:hover { text-decoration: underline; text-underline-offset: 0.25em; }
+.summary[open] summary { margin-bottom: 1.25rem; }
+.summary .prose { font-size: 1.0625rem; }
+
+/* Team */
+
+.team {
+  display: grid;
+  gap: 1.75rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 40rem) {
+  .team { grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); }
+}
+.team__name {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.team__org {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.45;
+  margin-top: 0.3rem;
+}
+
+/* ---------- Sign-up ---------- */
+
+.signup {
+  margin-top: var(--section-space);
+  padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
+  background: var(--band);
+}
+
+.signup__inner {
+  display: grid;
+  gap: 1.5rem 2rem;
+}
+@media (min-width: 56rem) {
+  .signup__inner { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+}
+
+.signup__text p { margin-top: 0.75rem; max-width: 30rem; }
+
+.signup__form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 32rem;
+  font-family: var(--sans);
+}
+.signup__form label { font-size: 1rem; font-weight: 600; }
+
+.signup__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.signup__form input[type="email"] {
+  flex: 1 1 14rem;
+  min-width: 0;
+  padding: 0.7rem 0.8rem;
+  border: 1.5px solid var(--muted);
+  border-radius: 0.3rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.signup__form button {
+  padding: 0.7rem 1.25rem;
+  border: 2px solid var(--water);
+  border-radius: 0.3rem;
+  background: var(--water);
+  color: var(--on-water);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.signup__form button:hover:not(:disabled) { background: var(--water-ink); border-color: var(--water-ink); }
+
+.signup__form :disabled { cursor: not-allowed; opacity: 0.55; }
+
+.signup__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.signup__form .signup__consent { font-weight: 400; font-size: 0.9375rem; line-height: 1.45; }
+.signup__consent input {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0.15rem 0 0;
+  accent-color: var(--water);
+}
+
+.signup__note {
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+/* ---------- Inner pages ---------- */
+
+.page {
+  padding-top: clamp(2rem, 1rem + 4vw, 4rem);
+  min-height: 50vh;
+}
+.page__head { margin-bottom: 2.5rem; }
+.page__head .prose { margin-top: 1rem; }
+.page__meta {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: var(--step--1);
+}
+.page__action { margin-top: 2.5rem; }
+
+.empty {
+  max-width: var(--measure);
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.posts {
+  max-width: 44rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.posts li { padding-block: 1.5rem; border-top: 1px solid var(--rule); }
+.posts time {
+  color: var(--muted);
+  font-family: var(--sans);
+  font-size: var(--step--1);
+}
+.posts h2 { font-size: var(--step-1); margin-top: 0.3rem; }
+.posts h2 a { color: var(--ink); text-decoration: none; }
+.posts h2 a:hover { text-decoration: underline; }
+.posts p { margin-top: 0.4rem; color: var(--muted); }
+
+.papers-year + .papers-year { margin-top: 2.5rem; }
+.papers-year h2 { font-size: var(--step-1); color: var(--muted); }
+.papers {
+  max-width: 48rem;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.papers li { padding-block: 1rem; border-top: 1px solid var(--rule); }
+.paper__title { font-weight: 600; }
+.paper__meta { margin-top: 0.25rem; font-size: 1rem; color: var(--muted); }
+.paper__note { margin-top: 0.35rem; font-size: 1rem; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  padding-block: 2.5rem 3rem;
+  font-family: var(--sans);
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+main:not(:has(.signup)) + .site-footer { margin-top: var(--section-space); border-top: 1px solid var(--rule); }
+
+.site-footer__inner { display: grid; gap: 1rem; }
+.funding { max-width: 44rem; }
+.site-footer a { color: inherit; }
+.site-footer a:hover { color: var(--ink); }
+.site-footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Logos ---------- */
+
+/* Logos sit on a white panel in both colour schemes, so each keeps its
+   original colours (funder and institution rules forbid altering them). */
+.logo-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 2.25rem;
+  margin: 0;
+  padding: 1.1rem 1.5rem;
+  list-style: none;
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 0.5rem;
+}
+.logo-strip li { display: flex; }
+.logo-strip a { display: flex; border-radius: 2px; }
+.logo-strip img { display: block; width: auto; max-width: 100%; }
+
+.institutions { margin-top: 2rem; }
+.institutions .logo-strip { justify-content: center; }
+@media (min-width: 40rem) {
+  .institutions .logo-strip { justify-content: space-between; }
+}
+
+.funders {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+  margin-bottom: 0.5rem;
+}
+.funders__label { color: var(--muted); }
+.funders .logo-strip { padding: 0.8rem 1.25rem; gap: 1rem 2rem; }

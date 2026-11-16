@@ -1,0 +1,30 @@
+{{- $n := site.Params.newsletter }}
+{{- $open := ne ($n.action | default "") "" }}
+{{- if not $open }}{{ warnf "Newsletter sign-up is disabled: set params.newsletter.action in hugo.toml." }}{{ end }}
+<section id="updates" class="signup" aria-labelledby="updates-title">
+  <div class="wrap signup__inner">
+    <div class="signup__text">
+      <h2 id="updates-title">Stay updated</h2>
+      <p>Occasional emails about project news, new publications and chances to help shape the platform, such as co-design workshops and early testing.</p>
+    </div>
+    <form class="signup__form"{{ if $open }} action="{{ $n.action }}" method="post"{{ end }}>
+      <label for="signup-email">Email address</label>
+      <div class="signup__row">
+        <input id="signup-email" name="{{ $n.email_field | default "EMAIL" }}" type="email" autocomplete="email" required{{ if not $open }} disabled aria-describedby="signup-note"{{ end }}>
+        <button type="submit"{{ if not $open }} disabled{{ end }}>Subscribe</button>
+      </div>
+      <label class="signup__consent">
+        <input type="checkbox"{{ with $n.consent_field }} name="{{ . }}" value="1"{{ end }} required{{ if not $open }} disabled{{ end }}>
+        <span>I agree to receive HydroImpact updates by email, as described in the <a href="{{ "privacy/" | relURL }}">privacy notice</a>.</span>
+      </label>
+      {{- range $n.hidden }}
+      <input type="hidden" name="{{ .name }}" value="{{ .value }}">
+      {{- end }}
+      {{- if $open }}
+      <p class="signup__note">We will first send you an email to confirm your address. You can unsubscribe at any time.</p>
+      {{- else }}
+      <p class="signup__note" id="signup-note">Sign-up opens soon.</p>
+      {{- end }}
+    </form>
+  </div>
+</section>

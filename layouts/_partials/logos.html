@@ -1,0 +1,11 @@
+{{- /* A row of logos on a white panel, so every logo keeps its original
+       colours in light and dark mode. Expects a list of {name, file, url, height}. */ -}}
+<ul class="logo-strip">
+  {{- range . }}
+  <li>
+    {{- with .url }}<a href="{{ . }}">{{ end -}}
+    <img src="{{ .file | relURL }}" alt="{{ .name }}" style="height: {{ .height | default 28 }}px" loading="lazy" decoding="async">
+    {{- with .url }}</a>{{ end -}}
+  </li>
+  {{- end }}
+</ul>

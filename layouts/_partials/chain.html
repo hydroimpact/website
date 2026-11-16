@@ -1,0 +1,34 @@
+{{- /* Modelling chain figure on the home page. Text lives in content/_index.md
+       under "chain". A step with role "assess" (dashed) or "run" (solid) is
+       marked in blue, and the bracket underneath spans those steps. */ -}}
+{{- $c := .Params.chain }}
+{{- $first := -1 }}
+{{- $last := -1 }}
+{{- range $i, $st := $c.steps }}
+  {{- if $st.role }}
+    {{- if lt $first 0 }}{{ $first = $i }}{{ end }}
+    {{- $last = $i }}
+  {{- end }}
+{{- end }}
+<figure class="wrap chain" aria-labelledby="chain-title">
+  <p class="chain__title" id="chain-title">{{ $c.title }}</p>
+  <div class="chain__grid">
+    {{- range $i, $s := $c.stages }}
+    <div class="chain__stage">
+      {{- partial "chain-icon.html" (add $i 1) }}
+      <p class="chain__name">{{ $s.name }}</p>
+      <p class="chain__text">{{ $s.text }}</p>
+    </div>
+    {{- if lt $i (len $c.steps) }}
+    {{- $st := index $c.steps $i }}
+    <p class="chain__step p{{ add $i 1 }}{{ with $st.role }} chain__step--{{ . }}{{ end }}">
+      {{- $st.name }}{{ with $st.note }}<span class="chain__note">{{ . }}</span>{{ end -}}
+    </p>
+    {{- end }}
+    {{- end }}
+    {{- if ge $first 0 }}
+    <p class="chain__ours" style="--from: {{ add (mul $first 2) 2 }}; --to: {{ add (mul $last 2) 4 }}">{{ $c.ours }}</p>
+    {{- end }}
+  </div>
+  <figcaption>{{ $c.caption }}</figcaption>
+</figure>

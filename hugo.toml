@@ -1,0 +1,36 @@
+baseURL = "https://hydroimpact.org/"
+locale = "en"
+title = "HydroImpact"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "HydroImpact is building a cloud-based platform that makes hydrological climate impact assessments accessible to water managers, engineers and planners."
+  repo = "https://github.com/hydroimpact/website"
+  grant = "40B2-0_243611"
+
+  # Shown on the privacy page and in the footer. Leave empty until a project
+  # address exists; the build prints a warning while it is empty.
+  contact_email = "pascal.horton@unibe.ch"
+
+  # Email sign-up. Paste the form action URL from your newsletter provider's
+  # embedded-form code (Brevo, MailerLite, ...). While `action` is empty the
+  # form is shown disabled with "Sign-up opens soon".
+  [params.newsletter]
+    action = ""
+    email_field = "EMAIL"       # name of the email input in the provider's form
+    consent_field = ""          # optional: name of the provider's opt-in checkbox field
+    # Extra hidden inputs the provider's form needs, e.g.
+    # hidden = [ { name = "locale", value = "en" } ]
+    hidden = []
+
+[markup.goldmark.renderer]
+  unsafe = false
+
+[outputs]
+  home = ["html"]
+  section = ["html", "rss"]
+  page = ["html"]
+
+[module.hugoVersion]
+  min = "0.170.0"

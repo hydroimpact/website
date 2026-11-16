@@ -1,0 +1,37 @@
+{{ define "main" }}
+{{- $papers := hugo.Data.papers.papers | default slice }}
+{{- $suggest := printf "%s/issues/new?template=suggest-paper.yml" site.Params.repo }}
+<div class="wrap page">
+  <header class="page__head">
+    <h1>{{ .Title }}</h1>
+    <div class="prose">{{ .Content }}</div>
+  </header>
+
+  {{- if $papers }}
+  {{- $years := slice }}
+  {{- range $papers }}{{ $years = $years | append .year }}{{ end }}
+  {{- range sort ($years | uniq) "value" "desc" }}
+  {{- $year := . }}
+  <section class="papers-year" aria-labelledby="y{{ $year }}">
+    <h2 id="y{{ $year }}">{{ $year }}</h2>
+    <ol class="papers">
+      {{- range where $papers "year" $year }}
+      <li>
+        <p class="paper__title">
+          {{- $link := cond (ne (.doi | default "") "") (printf "https://doi.org/%s" .doi) (.url | default "") }}
+          {{- if $link }}<a href="{{ $link }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end -}}
+        </p>
+        <p class="paper__meta">{{ strings.TrimSuffix "." .authors }}{{ with .venue }}. <i>{{ . }}</i>{{ end }}{{ with .doi }}. doi:{{ . }}{{ end }}</p>
+        {{- with .note }}<p class="paper__note">{{ . }}</p>{{ end }}
+      </li>
+      {{- end }}
+    </ol>
+  </section>
+  {{- end }}
+  {{- else }}
+  <p class="empty">No papers listed yet. The list will grow as the project publishes results and as people suggest relevant studies.</p>
+  {{- end }}
+
+  <p class="page__action"><a class="button button--quiet" href="{{ $suggest }}">Suggest a paper</a></p>
+</div>
+{{ end }}

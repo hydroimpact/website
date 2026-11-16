@@ -1,0 +1,22 @@
+# Papers listed on /papers/, grouped by year (newest first).
+# To suggest a paper, open a "Suggest a paper" issue on GitHub or add an entry
+# below in a pull request (see CONTRIBUTING.md).
+#
+# Fields:
+#   title    (required)
+#   authors  (required) e.g. "Surname, A., Surname, B., and Surname, C."
+#   year     (required) number, e.g. 2027
+#   venue    journal, conference or report series
+#   doi      DOI without the https://doi.org/ prefix
+#   url      link to use when there is no DOI
+#   note     one sentence on why the paper is relevant to HydroImpact
+#
+# Example:
+# - title: "Title of the paper"
+#   authors: "Surname, A. and Surname, B."
+#   year: 2027
+#   venue: "Hydrology and Earth System Sciences"
+#   doi: "10.5194/hess-00-0000-2027"
+#   note: "Compares bias-adjustment methods for snow-dominated catchments."
+
+papers: []

@@ -1,0 +1,11 @@
+{{ define "main" }}
+<article class="wrap page">
+  <header class="page__head">
+    {{- if eq .Section "news" }}
+    <p class="page__meta"><a href="{{ "news/" | relURL }}">News</a>, <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+    {{- end }}
+    <h1>{{ .Title }}</h1>
+  </header>
+  <div class="prose">{{ .Content }}</div>
+</article>
+{{ end }}
