@@ -53,9 +53,7 @@ why:
 
     - **The modelling chain is complex.** It involves huge climate datasets, and models that take time and expertise to set up.
     - **Uncertainty accumulates along the chain.** Leaving it out gives false precision, with protection that is too weak or needlessly costly.
-    - **The right workflow depends on the application.** What works for reservoir inflows is not what a 100-year flood estimate needs.
-
-    Most climate impact studies therefore stay in academia, and practitioners often rely on a few climate projections and a single hydrological model. In our 2026 survey of 104 water professionals in Switzerland, 85% said they do not run climate impact projections in-house.
+    - **The right workflow depends on the application.** What works for droughts is not what a 100-year flood estimate needs.
 
 # Sections shown after "The challenge", in this order. A section with "steps"
 # shows them as numbered columns, followed by the optional "closing" line.
@@ -83,8 +81,8 @@ sections:
           region in the cloud, and quantify the uncertainty.
       - title: Understand
         text: >-
-          Results will come decision-ready: time series, the indicators
-          practitioners use with their likely range, plain-language explanations
+          Results will come decision-ready: time series and indicators
+          with their likely range, plain-language explanations
           of what changes and why, and reports or an API for your own tools.
     closing: >-
       Then comes the decision the results are for: sizing infrastructure for
