@@ -5,10 +5,10 @@ description: HydroImpact makes robust hydrological climate impact assessments ac
 hero:
   heading: Robust climate impact assessments for rivers across Europe
   lede: >-
-    Climate change is reshaping our rivers: longer droughts, more intense floods.
-    HydroImpact will quantify these changes, river by river, with a platform that
-    makes robust hydrological climate impact assessments accessible to those who
-    need them.
+    Climate change is reshaping our rivers, with longer droughts and more intense
+    floods. HydroImpact will make robust hydrological climate impact assessments
+    accessible to water professionals, with a platform that quantifies these
+    changes for their own catchment and application.
   status: The project starts in May 2027, funded by BRIDGE.
 
 # Modelling chain figure below the introduction (layouts/_partials/chain.html).
@@ -42,40 +42,59 @@ chain:
     regional climate simulations onwards, and turns them into automated
     workflows.
   caption: >-
-    The possible answers multiply at every step. Unsuited methods and ignored
-    uncertainty lead to costly wrong decisions.
+    Each step offers several models and methods, so the possible answers multiply
+    along the chain. Unsuited choices and ignored uncertainty can lead to costly
+    wrong decisions.
 
 why:
-  heading: Why it is needed
+  heading: The challenge
   text: |-
-    Climate change is altering streamflow in mountain regions and in the lowlands that depend on them. Summer water availability is decreasing, while floods and droughts are intensifying, driven by changes in snow accumulation and melt, evapotranspiration, and the amount and intensity of precipitation.
+    Many decisions taken today depend on how rivers will change over the coming decades. Yet turning climate projections into actionable hydrological information remains difficult:
 
-    Quantifying these changes takes a long modelling chain: adjusting and downscaling climate data, calibrating hydrological models, then simulating how rivers respond to future climate. Each step involves choices, and the right combination depends on the question being asked. Doing this properly is time-consuming and often beyond what practitioners can take on. As a result, most climate impact studies stay in academia, and practical assessments tend to rely on a small subset of climate scenarios and models, which underestimates uncertainty.
+    - **The modelling chain is complex.** It involves huge climate datasets, and models that take time and expertise to set up.
+    - **Uncertainty accumulates along the chain.** Leaving it out gives false precision, with protection that is too weak or needlessly costly.
+    - **The right workflow depends on the application.** What works for reservoir inflows is not what a 100-year flood estimate needs.
 
-build:
-  heading: What we will build
-  intro: >-
-    A platform developed together with the people who will use it: water resources
-    managers, engineers and consultants, river basin authorities, hydropower
-    operators, environmental agencies, risk managers and planners.
-  items:
-    - title: Workflows tested for real applications
-      text: >-
-        We will evaluate combinations of climate data processing and hydrological
-        models for specific uses, such as changes in water availability or flood
-        frequency, across different regions of Europe, and quantify uncertainty
-        along the whole modelling chain.
-    - title: A platform that runs the whole chain
-      text: >-
-        Users define their catchment. The platform retrieves the relevant data,
-        selects, calibrates and runs the most suitable workflow, and reports
-        projected changes in mean flow, floods, droughts and seasonality, with
-        their uncertainty.
-    - title: Results that are easier to interpret
-      text: >-
-        An AI-assisted analysis layer will highlight the main patterns of change
-        and what they mean in practice. Advanced users keep access to the full
-        time series and statistics.
+    Most climate impact studies therefore stay in academia, and practitioners often rely on a few climate projections and a single hydrological model. In our 2026 survey of 104 water professionals in Switzerland, 85% said they do not run climate impact projections in-house.
+
+# Sections shown after "The challenge", in this order. A section with "steps"
+# shows them as numbered columns, followed by the optional "closing" line.
+sections:
+  - heading: Our approach
+    text: |-
+      HydroImpact combines research and software. A systematic benchmark will first identify which modelling chains can be trusted for which application and region. An application-driven cloud platform will then run these validated workflows automatically and add AI-powered insights, so practitioners get robust, uncertainty-aware answers without building the chain themselves.
+  - heading: A systematic benchmark
+    text: |-
+      Each application needs its own workflow, but no systematic benchmark shows which one suits which application and region. We will build it. On catchments across Europe, we will combine bias adjustment and downscaling methods with process-based, data-driven and hybrid hydrological models, and with calibrations that hold in a changing climate.
+
+      Only the chains that reproduce what an application needs, for example floods or low flows, will be kept. The spread that remains among them is the uncertainty, which we will quantify, attribute to its sources and explain.
+  - heading: How the platform will work
+    text: |-
+      The platform will offer the validated workflows as a guided, code-free service. Everything runs in the cloud, so no climate data need to be downloaded and no models set up locally. An assessment takes three steps.
+    steps:
+      - title: Select
+        text: >-
+          You will choose the catchment on a map, the application (flood
+          frequency, low flows, water availability, seasonality or reservoir
+          inflows) and the time horizon.
+      - title: Compute
+        text: >-
+          HydroImpact will run the workflow validated for that application and
+          region in the cloud, and quantify the uncertainty.
+      - title: Understand
+        text: >-
+          Results will come decision-ready: time series, the indicators
+          practitioners use with their likely range, plain-language explanations
+          of what changes and why, and reports or an API for your own tools.
+    closing: >-
+      Then comes the decision the results are for: sizing infrastructure for
+      future floods, planning hydropower production and storage for the decades
+      ahead, or preparing water-sharing plans for droughts.
+  - heading: Open and co-designed
+    text: |-
+      Models and methods will be mostly open source, and results published in open-access, peer-reviewed articles.
+
+      Partners from engineering firms, hydropower companies, public authorities and insurance companies co-design and test the platform, which will cover Switzerland first, then Europe.
 ---
 
 Climate change has a profound impact on streamflow in mountain regions and their dependent lowland areas, with summer water availability decreasing and extreme events such as floods and droughts intensifying. The underlying changes in key hydrological processes, including snow accumulation and melt, evapotranspiration, and precipitation amount and intensity, have severe impacts on water supply and management.

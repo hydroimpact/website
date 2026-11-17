@@ -10,8 +10,10 @@
     {{- $last = $i }}
   {{- end }}
 {{- end }}
-<figure class="wrap chain" aria-labelledby="chain-title">
-  <p class="chain__title" id="chain-title">{{ $c.title }}</p>
+<figure class="wrap chain"{{ if $c.title }} aria-labelledby="chain-title"{{ else }} aria-label="The modelling chain behind a hydrological climate impact assessment"{{ end }}>
+  {{- with $c.title }}
+  <p class="chain__title" id="chain-title">{{ . }}</p>
+  {{- end }}
   <div class="chain__grid">
     {{- range $i, $s := $c.stages }}
     <div class="chain__stage">

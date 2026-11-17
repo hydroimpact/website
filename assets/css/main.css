@@ -506,6 +506,11 @@ a:hover { text-decoration-thickness: 2px; }
 .axes h3 { font-size: 1.2rem; }
 .axes h3::before { content: counter(step) ". "; color: var(--muted); font-weight: 500; }
 .axes p { margin-top: 0.6rem; }
+.axes__closing { max-width: var(--measure); margin-top: 2.5rem; }
+/* On wide screens, line the closing text up with the right-hand text column. */
+@media (min-width: 56rem) {
+  .axes__closing { margin-left: calc((100% - 2rem) / 3 + 2rem); }
+}
 
 /* Full summary */
 

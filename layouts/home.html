@@ -22,26 +22,31 @@
   <div class="prose">{{ $p.why.text | $.RenderString (dict "display" "block") }}</div>
 </section>
 
-<section class="section wrap" aria-labelledby="build-title">
+{{- range $i, $sec := $p.sections }}
+{{- if $sec.steps }}
+<section class="section wrap" aria-labelledby="section-{{ $i }}-title">
   <div class="split">
-    <h2 id="build-title">{{ $p.build.heading }}</h2>
-    <div class="prose"><p>{{ $p.build.intro }}</p></div>
+    <h2 id="section-{{ $i }}-title">{{ $sec.heading }}</h2>
+    <div class="prose">{{ $sec.text | $.RenderString (dict "display" "block") }}</div>
   </div>
   <ol class="axes">
-    {{- range $p.build.items }}
+    {{- range $sec.steps }}
     <li>
       <h3>{{ .title }}</h3>
       <p>{{ .text }}</p>
     </li>
     {{- end }}
   </ol>
+  {{- with $sec.closing }}
+  <p class="axes__closing">{{ . }}</p>
+  {{- end }}
 </section>
-
-{{- with $p.science }}
-<section class="section wrap split" aria-labelledby="science-title">
-  <h2 id="science-title">{{ .heading }}</h2>
-  <div class="prose">{{ .text | $.RenderString (dict "display" "block") }}</div>
+{{- else }}
+<section class="section wrap split" aria-labelledby="section-{{ $i }}-title">
+  <h2 id="section-{{ $i }}-title">{{ $sec.heading }}</h2>
+  <div class="prose">{{ $sec.text | $.RenderString (dict "display" "block") }}</div>
 </section>
+{{- end }}
 {{- end }}
 
 <section id="summary" class="section wrap split" aria-labelledby="summary-title">
