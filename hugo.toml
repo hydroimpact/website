@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term"]
   grant = "40B2-0_243611"
   linkedin = "https://www.linkedin.com/company/hydroimpact"
 
-  # Link preview image (LinkedIn etc.), 1200x630. Source: design/og-image.html.
+  # Link preview image (LinkedIn etc.), 1200x630. File in assets/; source: design/og-image.html.
   og_image = "og-image.png"
   og_image_alt = "HydroImpact logo"
 

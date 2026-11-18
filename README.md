@@ -19,7 +19,7 @@ The community website of HydroImpact, a hydrological climate impact platform fun
 | Institution logos under the team | `data/institutions.yaml` |
 | Fonts (Instrument Sans, Source Serif 4, SIL Open Font License) | `static/fonts/` |
 | Modelling chain figure on the home page | `layouts/_partials/chain.html` and `chain-icon.html` |
-| Link preview image for LinkedIn (`static/og-image.png`; edit `design/og-image.html`, then re-render it at 1200x630, e.g. `chrome --headless --window-size=1200,630 --screenshot=static/og-image.png design/og-image.html`). A news post can use its own image with `image:` and `image_alt:` in its front matter. | `design/og-image.html` |
+| Link preview image for LinkedIn (`assets/og-image.png`; edit `design/og-image.html`, then re-render it at 1200x630, e.g. `chrome --headless --window-size=1200,630 --screenshot=assets/og-image.png design/og-image.html`). A news post can use its own image with `image:` and `image_alt:` in its front matter. | `design/og-image.html` |
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for adding papers and news posts.
 

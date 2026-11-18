@@ -17,10 +17,15 @@
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">
 {{- /* Preview image for LinkedIn and other link previews: a page can set `image` in its
-       front matter (path under static/, 1200x630); otherwise the site-wide one is used. */}}
-{{- $image := .Params.image | default site.Params.og_image }}
+       front matter (path under static/, 1200x630); otherwise the site-wide one from
+       assets/ is used. It is fingerprinted so its URL changes whenever the file does,
+       which makes LinkedIn fetch the new version instead of its cached copy. */}}
+{{- $image := .Params.image | absURL }}
+{{- if not .Params.image }}
+  {{- with resources.Get site.Params.og_image }}{{ $image = (. | fingerprint "md5").Permalink }}{{ end }}
+{{- end }}
 {{- with $image }}
-<meta property="og:image" content="{{ . | absURL }}">
+<meta property="og:image" content="{{ . }}">
 {{- if not $.Params.image }}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
