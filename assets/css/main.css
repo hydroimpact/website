@@ -568,66 +568,6 @@ a:hover { text-decoration-thickness: 2px; }
 
 .signup__text p { margin-top: 0.75rem; max-width: 30rem; }
 
-.signup__form {
-  display: grid;
-  gap: 0.75rem;
-  max-width: 32rem;
-  font-family: var(--sans);
-}
-.signup__form label { font-size: 1rem; font-weight: 600; }
-
-.signup__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.signup__form input[type="email"] {
-  flex: 1 1 14rem;
-  min-width: 0;
-  padding: 0.7rem 0.8rem;
-  border: 1.5px solid var(--muted);
-  border-radius: 0.3rem;
-  background: var(--paper);
-  color: var(--ink);
-  font: inherit;
-  font-size: 1rem;
-}
-
-.signup__form button {
-  padding: 0.7rem 1.25rem;
-  border: 2px solid var(--water);
-  border-radius: 0.3rem;
-  background: var(--water);
-  color: var(--on-water);
-  font: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-.signup__form button:hover:not(:disabled) { background: var(--water-ink); border-color: var(--water-ink); }
-
-.signup__form :disabled { cursor: not-allowed; opacity: 0.55; }
-
-.signup__consent {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.6rem;
-}
-.signup__form .signup__consent { font-weight: 400; font-size: 0.9375rem; line-height: 1.45; }
-.signup__consent input {
-  flex: none;
-  width: 1.1rem;
-  height: 1.1rem;
-  margin: 0.15rem 0 0;
-  accent-color: var(--water);
-}
-
-.signup__note {
-  color: var(--muted);
-  font-size: var(--step--1);
-}
-
 /* ---------- Inner pages ---------- */
 
 .page {

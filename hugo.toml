@@ -13,17 +13,6 @@ disableKinds = ["taxonomy", "term"]
   # address exists; the build prints a warning while it is empty.
   contact_email = "pascal.horton@unibe.ch"
 
-  # Email sign-up. Paste the form action URL from your newsletter provider's
-  # embedded-form code (Brevo, MailerLite, ...). While `action` is empty the
-  # form is shown disabled with "Sign-up opens soon".
-  [params.newsletter]
-    action = ""
-    email_field = "EMAIL"       # name of the email input in the provider's form
-    consent_field = ""          # optional: name of the provider's opt-in checkbox field
-    # Extra hidden inputs the provider's form needs, e.g.
-    # hidden = [ { name = "locale", value = "en" } ]
-    hidden = []
-
 [markup.goldmark.renderer]
   unsafe = false
 
