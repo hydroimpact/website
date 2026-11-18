@@ -65,7 +65,7 @@
     <ul class="team">
       {{- range hugo.Data.team }}
       <li>
-        <p class="team__name">{{ with .url }}<a href="{{ . }}">{{ end }}{{ .name }}{{ with .url }}</a>{{ end }}</p>
+        <p class="team__name">{{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}{{ .name }}{{ with .url }}</a>{{ end }}</p>
         <p class="team__org">{{ .affiliation }}</p>
       </li>
       {{- end }}

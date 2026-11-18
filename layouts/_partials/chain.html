@@ -32,5 +32,7 @@
     <p class="chain__ours" style="--from: {{ add (mul $first 2) 2 }}; --to: {{ add (mul $last 2) 4 }}">{{ $c.ours }}</p>
     {{- end }}
   </div>
-  <figcaption>{{ $c.caption }}</figcaption>
+  {{- with $c.caption }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
 </figure>

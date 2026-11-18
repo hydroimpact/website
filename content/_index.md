@@ -41,10 +41,6 @@ chain:
     HydroImpact tests which chains suit each application and region, from the
     regional climate simulations onwards, and turns them into automated
     workflows.
-  caption: >-
-    Each step offers several models and methods, so the possible answers multiply
-    along the chain. Unsuited choices and ignored uncertainty can lead to costly
-    wrong decisions.
 
 why:
   heading: The challenge
@@ -61,11 +57,6 @@ sections:
   - heading: Our approach
     text: |-
       HydroImpact combines research and software. A systematic benchmark will first identify which modelling chains can be trusted for which application and region. An application-driven cloud platform will then run these validated workflows automatically and add AI-powered insights, so practitioners get robust, uncertainty-aware answers without building the chain themselves.
-  - heading: A systematic benchmark
-    text: |-
-      Each application needs its own workflow, but no systematic benchmark shows which one suits which application and region. We will build it. On catchments across Europe, we will combine bias adjustment and downscaling methods with process-based, data-driven and hybrid hydrological models, and with calibrations that hold in a changing climate.
-
-      Only the chains that reproduce what an application needs, for example floods or low flows, will be kept. The spread that remains among them is the uncertainty, which we will quantify, attribute to its sources and explain.
   - heading: How the platform will work
     text: |-
       The platform will offer the validated workflows as a guided, code-free service. Everything runs in the cloud, so no climate data need to be downloaded and no models set up locally. An assessment takes three steps.
@@ -84,10 +75,6 @@ sections:
           Results will come decision-ready: time series and indicators
           with their likely range, plain-language explanations
           of what changes and why, and reports or an API for your own tools.
-    closing: >-
-      Then comes the decision the results are for: sizing infrastructure for
-      future floods, planning hydropower production and storage for the decades
-      ahead, or preparing water-sharing plans for droughts.
   - heading: Open and co-designed
     text: |-
       Models and methods will be mostly open source, and results published in open-access, peer-reviewed articles.
