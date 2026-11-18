@@ -6,5 +6,16 @@
     </div>
     <!-- Infomaniak Newsletter embedded form (double opt-in is configured in the Infomaniak dashboard). -->
     <script src="https://webform.statslive.info/ow/eyJpdiI6Imp2TFNiaFdGbHBxaXNYU1VjdU00VU5QcFN5MEZ1djhEVm9MYWFcL2dZekU0PSIsIm1hYyI6ImY4OTA3N2JjZWU2MWY4N2Q3YWVlY2FlZDE3MDRhZDEyYjdiM2Q5MDZjYTdkOTc4YzVkNGRjYWZkMDFkNWYyYTkiLCJ2YWx1ZSI6IkI1bEhQOFNSYnp1V0VaK0hRM1VyanRIUHdjRnRQNDlXOWxyc3ZzZkJVeW89In0="></script>
+    <script>
+      // Infomaniak's labels are not tied to their fields; link them so clicking a label
+      // focuses the field and screen readers announce it. Runs right after the embed above.
+      document.querySelectorAll('#updates .inf-input').forEach(function (field, i) {
+        var label = field.querySelector('label'), input = field.querySelector('input');
+        if (!label || !input) return;
+        input.id = input.id || 'inf-field-' + i;
+        label.htmlFor = input.id;
+        if (input.type === 'email') input.autocomplete = 'email';
+      });
+    </script>
   </div>
 </section>
