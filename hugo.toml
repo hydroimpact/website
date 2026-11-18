@@ -12,7 +12,7 @@ disableKinds = ["taxonomy", "term"]
 
   # Link preview image (LinkedIn etc.), 1200x630. Source: design/og-image.html.
   og_image = "og-image.png"
-  og_image_alt = "HydroImpact: robust climate impact assessments for rivers across Europe"
+  og_image_alt = "HydroImpact logo"
 
   # Shown on the privacy page and in the footer. Leave empty until a project
   # address exists; the build prints a warning while it is empty.
