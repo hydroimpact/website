@@ -68,6 +68,7 @@
   --water-ink: #033770;
   --accent: #019dc9;
   --on-water: #ffffff;
+  --error: #b00020;
 
   --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
   --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -98,6 +99,7 @@
     --water-ink: #7fd0f0;
     --accent: #3bb8e6;
     --on-water: #0b1a21;
+    --error: #ff8a80;
   }
 }
 
@@ -567,6 +569,81 @@ a:hover { text-decoration-thickness: 2px; }
 }
 
 .signup__text p { margin-top: 0.75rem; max-width: 30rem; }
+
+/* Infomaniak embedded form (layouts/_partials/signup.html). The markup and a
+   <style> block come from Infomaniak; the wrapper class has a generated
+   suffix, hence [class^="inf-main_"]. Selectors start with .signup so they
+   outrank Infomaniak's own rules. */
+
+.signup .inf-form {
+  max-width: 32rem;
+  margin: 0;
+  font-family: var(--sans);
+}
+.signup [class^="inf-main_"] {
+  margin: 0;
+  padding: 0;
+  background: none;
+}
+.signup [class^="inf-main_"] > h4,
+.signup [class^="inf-main_"] > span:empty { display: none; }
+.signup [class^="inf-main_"] .inf-content { margin-top: 0; display: grid; gap: 0.75rem; }
+
+.signup [class^="inf-main_"] .inf-input { margin: 0; }
+.signup [class^="inf-main_"] .inf-input input {
+  width: 100%;
+  height: auto;
+  padding: 0.7rem 0.8rem;
+  border: 1.5px solid var(--muted);
+  border-radius: 0.3rem;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1rem;
+}
+.signup [class^="inf-main_"] .inf-input input::placeholder { color: var(--muted); opacity: 1; }
+
+.signup [class^="inf-main_"] .inf-input.inf-error input { border-color: var(--error); }
+.signup [class^="inf-main_"] .inf-input.inf-error label,
+.signup [class^="inf-main_"] .inf-input.inf-error span.inf-message {
+  color: var(--error);
+  font-size: var(--step--1);
+  margin-top: 0.3rem;
+}
+
+.signup [class^="inf-main_"] .inf-rgpd {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--step--1);
+  line-height: 1.45;
+}
+
+.signup [class^="inf-main_"] .inf-submit { text-align: left; }
+.signup [class^="inf-main_"] .inf-submit input {
+  margin-top: 0.25rem !important; /* overrides Infomaniak's inline margin */
+  padding: 0.7rem 1.25rem;
+  border: 2px solid var(--water);
+  border-radius: 0.3rem;
+  background: var(--water);
+  color: var(--on-water);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.signup [class^="inf-main_"] .inf-submit input:hover { background: var(--water-ink); border-color: var(--water-ink); }
+.signup [class^="inf-main_"] .inf-submit input.disabled { opacity: 0.55; cursor: not-allowed; }
+
+.signup [class^="inf-main_"] .inf-success h4 {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: var(--step-0);
+  font-weight: 600;
+  line-height: 1.4;
+}
+.signup [class^="inf-main_"] .inf-success .inf-btn { display: none; }
+.signup .altcha-label span { color: var(--muted); }
 
 /* ---------- Inner pages ---------- */
 
