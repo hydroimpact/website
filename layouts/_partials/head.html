@@ -16,6 +16,18 @@
 <meta property="og:title" content="{{ cond .IsHome site.Title .Title }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">
+{{- /* Preview image for LinkedIn and other link previews: a page can set `image` in its
+       front matter (path under static/, 1200x630); otherwise the site-wide one is used. */}}
+{{- $image := .Params.image | default site.Params.og_image }}
+{{- with $image }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- if not $.Params.image }}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{- end }}
+<meta property="og:image:alt" content="{{ $.Params.image_alt | default site.Params.og_image_alt }}">
+<meta name="twitter:card" content="summary_large_image">
+{{- end }}
 
 <link rel="preload" href="{{ "fonts/source-serif-4-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ "fonts/instrument-sans-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
