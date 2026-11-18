@@ -11,7 +11,7 @@ The community website of HydroImpact, a hydrological climate impact platform fun
 | Papers list (the page is hidden until it has entries, see `content/papers.md`) | `data/papers.yaml` |
 | News posts | `content/news/` |
 | Privacy notice | `content/privacy.md` |
-| Site settings: contact email, grant number | `hugo.toml` |
+| Site settings: contact email, grant number, LinkedIn page | `hugo.toml` |
 | Newsletter sign-up (Infomaniak embedded form) | `layouts/_partials/signup.html` |
 | Page templates | `layouts/` |
 | Styles | `assets/css/main.css` |

@@ -23,6 +23,9 @@
       {{- with site.Params.contact_email }}
       <li><a href="mailto:{{ . }}">Contact</a></li>
       {{- end }}
+      {{- with site.Params.linkedin }}
+      <li><a href="{{ . }}">LinkedIn</a></li>
+      {{- end }}
       <li><a href="{{ "news/index.xml" | relURL }}">News feed (RSS)</a></li>
       <li><a href="{{ site.Params.repo }}">Website source on GitHub</a></li>
     </ul>
